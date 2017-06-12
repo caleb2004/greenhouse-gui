@@ -53,15 +53,15 @@ public class GHdata {
     public GHdata()
     {
         setMaxTemperature(38);
-        setTemperature   (25);
+        setTemperature   (14.3);
         setMinTemperature(5);
 
         setMaxHumidity   (95);
-        setHumidity      (80);
+        setHumidity      (82);
         setMinHumidity   (40);
 
         setMaxLuminosity (7000);
-        setLuminosity    (5000);
+        setLuminosity    (8765);
         setMinLuminosity (2000);
     }
 

@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Greenhouse.iml" filepath="$PROJECT_DIR$/Greenhouse.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/greenhouse-gui.iml" filepath="$PROJECT_DIR$/greenhouse-gui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/greenhouse-gui.iml" filepath="$PROJECT_DIR$/greenhouse-gui.iml" />
     </modules>
   </component>
 </project>

@@ -1,6 +1,7 @@
 package com.joanjantz_lee.greenhouse;
 
 import android.content.Intent;
+import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -10,6 +11,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import static com.joanjantz_lee.greenhouse.R.id.tvTemp;
 import static org.junit.Assert.*;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -27,8 +30,17 @@ public class ReadingsTest {
     @Mock
     private FirebaseDatabase firebaseDBInstance;
 
+    @Mock
+    private TextView tvLumin;
+
+    @Mock
+    private TextView tvHumid;
+
+    @Mock
+    private TextView tvTemp;
+
     //inject your fake objects into the class you are testing
-    @InjectMocks
+    //@InjectMocks
     private MainActivity sut;
 
     @Before
@@ -42,22 +54,22 @@ public class ReadingsTest {
     @Test
     public void testGetTemp() throws Exception {
         //read temp from firebase
-        //set in UI
-        //verify(UI).setValue(anyString());
+        sut.setTempLevels();
+        verify(tvTemp, times(1)).setText(anyString());
     }
 
     @Test
     public void testGetHumidity() throws Exception {
         //read humidity from firebase
-        //set in UI
-        //verify(UI).setValue(anyString());
+        sut.setHumidLevels();
+        verify(tvHumid, times(1)).setText(anyString());
     }
 
     @Test
     public void testGetLuminocity() throws Exception {
         //read luminocity from firebase
-        //set in UI
-        //verify(UI).setValue(anyString());
+        sut.setLuminLevels();
+        verify(tvLumin, times(1)).setText(anyString());
     }
 
     @Test

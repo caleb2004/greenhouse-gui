@@ -16,8 +16,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-//import org.androidannotations.annotations.ViewById;
-
 
 public class MainActivity extends AppCompatActivity {
     GHdata dataBlob = new GHdata();
@@ -40,15 +38,57 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setLuminLevels() {
-        //do stuff
+        tvLumin = (TextView)findViewById(R.id.tvLumin);
+        firebaseReference = firebaseDBInstance.getReference("Light: ");
+
+        firebaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = (String) dataSnapshot.getValue();
+                tvLumin.setText(value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
     }
 
     public void setHumidLevels() {
-        //do stuff
+        tvHumid = (TextView)findViewById(R.id.tvHumid);
+        firebaseReference = firebaseDBInstance.getReference("Humidity: ");
+
+        firebaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = (String) dataSnapshot.getValue();
+                tvHumid.setText(value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
     }
 
     public void setTempLevels() {
-        //do stuff
+        tvTemp = (TextView)findViewById(R.id.tvTemp);
+        firebaseReference = firebaseDBInstance.getReference("Temperature: ");
+
+        firebaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = (String) dataSnapshot.getValue();
+                tvTemp.setText(value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
     }
 
     protected void checkTemp(View v){

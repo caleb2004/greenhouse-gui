@@ -41,9 +41,62 @@ public class ReadingsTest {
 
     @Test
     public void testGetTemp() throws Exception {
-        //read light from firebase
+        //read temp from firebase
         //set in UI
         //verify(UI).setValue(anyString());
+    }
+
+    @Test
+    public void testGetHumidity() throws Exception {
+        //read humidity from firebase
+        //set in UI
+        //verify(UI).setValue(anyString());
+    }
+
+    @Test
+    public void testGetLuminocity() throws Exception {
+        //read luminocity from firebase
+        //set in UI
+        //verify(UI).setValue(anyString());
+    }
+
+    @Test
+    public void testGetTempWarning() throws Exception {
+        //read humidity from firebase
+        //set in UI
+        //verify(UI).setValue(anyString());
+    }
+
+    @Test
+    public void testGetHumidityWarning() throws Exception {
+        //read humidity from firebase
+        //set in UI
+        //verify(UI).setValue(anyString());
+    }
+
+    @Test
+    public void testGetLuminocityWarning() throws Exception {
+        //read humidity from firebase
+        //set in UI
+        //verify(UI).setValue(anyString());
+    }
+
+    @Test
+    public void testSetTempWarning() throws Exception {
+        //set UI warning
+        //verify warning
+    }
+
+    @Test
+    public void testSetHumidityWarning() throws Exception {
+        //set UI warning
+        //verify warning
+    }
+
+    @Test
+    public void testSetLuminocityWarning() throws Exception {
+        //set UI warning
+        //verify warning
     }
 
     //TODO: test humidity update and luminosity

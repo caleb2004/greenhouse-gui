@@ -16,17 +16,40 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.androidannotations.annotations.EActivity;
 
+@EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
     GHdata dataBlob = new GHdata();
-    public FirebaseDatabase firebaseDBInstance = FirebaseDatabase.getInstance();
-    public DatabaseReference firebaseReference;
+
+    private FirebaseDatabase firebaseDBInstance = FirebaseDatabase.getInstance();
+    private DatabaseReference firebaseReference;
+
+    private TextView tvLumin;
+    private TextView tvHumid;
+    private TextView tvTemp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //set the displayed levels
+        setLuminLevels();
+        setHumidLevels();
+        setTempLevels();
+    }
+
+    public void setLuminLevels() {
+        //do it
+    }
+
+    public void setHumidLevels() {
+        //do it
+    }
+
+    public void setTempLevels() {
+        //do it
     }
 
     protected void checkTemp(View v){
@@ -34,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         //TextView outputT = (TextView) findViewById(R.id.tvTemp);
         //outputT.setText(""+T+"C");
 
-        firebaseReference = firebaseDBInstance.getReference("temperature: ");
+        firebaseReference = firebaseDBInstance.getReference("Temperature: ");
         firebaseReference.addListenerForSingleValueEvent(new ValueEventListener()
         {
             @Override

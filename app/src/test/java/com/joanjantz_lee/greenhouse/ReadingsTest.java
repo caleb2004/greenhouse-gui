@@ -41,6 +41,12 @@ public class ReadingsTest {
     private TextView tvTemp;
 
     @Mock
+    private TextView outputTH;
+
+    @Mock
+    private TextView outputTL;
+
+    @Mock
     private View v;
 
     //inject your fake objects into the class you are testing
@@ -80,14 +86,14 @@ public class ReadingsTest {
     public void testSetTempHigh() throws Exception {
         String tempHighRange = "25";
         //sut.setThi(v);
-        //verify(outputTH).equals(tempHighRange);
+        verify(outputTH).equals(tempHighRange);
     }
 
     @Test
     public void testSetTempLow() throws Exception {
         String tempLowRange = "5";
         //sut.setTlow(v);
-        //verify(outputTL).equals(tempLowRange);
+        verify(outputTL).equals(tempLowRange);
     }
 
     @Test

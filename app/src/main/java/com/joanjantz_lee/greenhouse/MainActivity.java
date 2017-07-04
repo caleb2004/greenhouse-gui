@@ -120,6 +120,33 @@ public class MainActivity extends AppCompatActivity {
         outputT.setText(""+T+"C");
     }
 
+    protected void setThi(View v){
+
+        EditText inputT = (EditText) findViewById(R.id.numT);
+        double T = Double.parseDouble(inputT.getText().toString());
+        dataBlob.setMaxTemperature(T);
+        T = dataBlob.getMaxTemperature();
+        TextView outputTH = (TextView) findViewById(R.id.tvThigh);
+        outputTH.setText(""+T+"C");
+        tvTemp = (TextView)findViewById(R.id.tvTemp);
+
+        dataBlob.setTempColor(tvTemp);
+    }
+
+    public void setTlow(View v){
+
+        EditText inputT = (EditText) findViewById(R.id.numT);
+        double T = Double.parseDouble(inputT.getText().toString());
+        dataBlob.setMinTemperature(T);
+        T = dataBlob.getMinTemperature();
+        TextView outputTL = (TextView) findViewById(R.id.tvTlow);
+        outputTL.setText(""+T+"C");
+
+        tvTemp = (TextView)findViewById(R.id.tvTemp);
+
+        dataBlob.setTempColor(tvTemp);
+    }
+
     protected void checkHumidity(View v){
 
         double H = dataBlob.getHumidity();

@@ -155,10 +155,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void checkLuminosity(View v){
-
+      
         double L = dataBlob.getLuminosity();
         TextView outputL = (TextView) findViewById(R.id.tvLumin);
         outputL.setText(""+L+"L");
 
     }
+
+    protected void checkValues(View v){
+        //allows all three functions with one button
+        checkHumidity(v);
+        checkLuminosity(v);
+        checkTemp(v);
+    }
+
 }

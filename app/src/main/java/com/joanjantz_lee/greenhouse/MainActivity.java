@@ -1,5 +1,8 @@
 package com.joanjantz_lee.greenhouse;
 
+import android.app.ActionBar;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#1b631f"));
+        getSupportActionBar().setBackgroundDrawable(colorDrawable);
 
         //set the displayed levels
         setLuminLevels();

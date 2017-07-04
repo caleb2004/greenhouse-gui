@@ -26,6 +26,9 @@ public class ReadingsUITest {
     private String displayLumin;
     private String displayHumid;
 
+    private String hiTempRange;
+    private String lowTempRange;
+
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(
             MainActivity.class);
@@ -35,6 +38,9 @@ public class ReadingsUITest {
         displayTemp = "15 C";
         displayLumin = "5432 LM";
         displayHumid = "98%";
+
+        hiTempRange = "35";
+        lowTempRange = "5";
     }
 
     @Test
@@ -53,6 +59,39 @@ public class ReadingsUITest {
     public void checkHumidDisplay() {
         onView(withId(R.id.tvHumid))
                 .check(matches(withText(displayHumid)));
+    }
+
+    @Test
+    public void testSetHighTemp() {
+        onView(withId(R.id.numT))
+                .perform(typeText(hiTempRange), closeSoftKeyboard());
+        onView(withId(R.id.btThigh)).perform(click());
+
+        // Check that the text was changed.
+        onView(withId(R.id.tvThigh))
+                .check(matches(withText(hiTempRange)));
+    }
+
+
+    @Test
+    public void testSetLowTemp() {
+        onView(withId(R.id.numT))
+                .perform(typeText(lowTempRange), closeSoftKeyboard());
+        onView(withId(R.id.btTlow)).perform(click());
+
+        // Check that the text was changed.
+        onView(withId(R.id.tvTlow))
+                .check(matches(withText(lowTempRange)));
+    }
+
+    @Test
+    public void testSetInvalidHighTemp() {
+        //set range to invalid number
+    }
+
+    @Test
+    public void testSetInvalidLowTemp() {
+        //set range to invalid number
     }
 
 }

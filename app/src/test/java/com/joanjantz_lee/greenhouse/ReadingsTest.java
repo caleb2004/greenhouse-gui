@@ -1,6 +1,7 @@
 package com.joanjantz_lee.greenhouse;
 
 import android.content.Intent;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -39,6 +40,15 @@ public class ReadingsTest {
     @Mock
     private TextView tvTemp;
 
+    @Mock
+    private TextView outputTH;
+
+    @Mock
+    private TextView outputTL;
+
+    @Mock
+    private View v;
+
     //inject your fake objects into the class you are testing
     //@InjectMocks
     private MainActivity sut;
@@ -70,6 +80,27 @@ public class ReadingsTest {
         //read luminocity from firebase
         sut.setLuminLevels();
         verify(tvLumin, times(1)).setText(anyString());
+    }
+
+    @Test
+    public void testSetTempHigh() throws Exception {
+        String tempHighRange = "25";
+        //sut.setThi(v);
+        verify(outputTH).equals(tempHighRange);
+    }
+
+    @Test
+    public void testSetTempLow() throws Exception {
+        String tempLowRange = "5";
+        //sut.setTlow(v);
+        verify(outputTL).equals(tempLowRange);
+    }
+
+    @Test
+    public void testGetTempLow() throws Exception {
+        //read humidity from firebase
+        //set in UI
+        //verify(UI).setValue(anyString());
     }
 
     @Test

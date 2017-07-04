@@ -147,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void checkValues(View v){
+        //allows all three functions with one button
         checkHumidity(v);
         checkLuminosity(v);
         checkTemp(v);

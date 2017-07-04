@@ -1,29 +1,50 @@
 package com.joanjantz_lee.greenhouse;
 
+import android.graphics.Color;
+import android.widget.TextView;
+
 /**
  * Created by joanjantz-lee on 2017-06-07.
  */
 
 public class GHdata {
-        //========================
-        // Data
-        //========================
-        // Temperature
-        private double temperature;
-        private double maxTemperature;
-        private double minTemperature;
-        // Humidity
-        private double humidity;
-        private double maxHumidity;
-        private double minHumidity;
-        // Luminosity
-        private double luminosity;
-        private double maxLuminosity;
-        private double minLuminosity;
+    //========================
+    // Data
+    //========================
+    // Temperature
+    private double temperature;
+    private double maxTemperature;
+    private double minTemperature;
+    // Humidity
+    private double humidity;
+    private double maxHumidity;
+    private double minHumidity;
+    // Luminosity
+    private double luminosity;
+    private double maxLuminosity;
+    private double minLuminosity;
 
-        //========================
-        // Setters
-        //========================
+    public void setTempColor(TextView tv)
+    {
+
+
+        if (getTemperature()>getMaxTemperature())
+        {
+            tv.setTextColor(Color.RED);
+        }
+        else if (getTemperature() < getMinTemperature())
+        {
+            tv.setTextColor(Color.LTGRAY);
+        }
+        else
+        {
+            tv.setTextColor(Color.BLACK);
+        }
+    }
+
+    //========================
+    // Setters
+    //========================
     public void setTemperature   (double t)   { temperature    = t;   }
     public void setHumidity      (double h)   { humidity       = h;   }
     public void setLuminosity    (double l)   { luminosity     = l;   }

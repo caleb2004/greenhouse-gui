@@ -10,8 +10,8 @@
 
     <TextView
         android:id="@+id/tempText"
-        android:layout_width="225"
-        android:layout_height="45"
+        android:layout_width="225dp"
+        android:layout_height="45dp"
         android:text="Temperature:"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/black"
@@ -22,8 +22,8 @@
 
     <TextView
         android:id="@+id/luminText"
-        android:layout_width="225"
-        android:layout_height="45"
+        android:layout_width="225dp"
+        android:layout_height="45dp"
         android:text="Luminosity:"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/black"
@@ -34,8 +34,8 @@
 
     <TextView
         android:id="@+id/humidText"
-        android:layout_width="225"
-        android:layout_height="45"
+        android:layout_width="225dp"
+        android:layout_height="45dp"
         android:text="Humidity:"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/black"
@@ -48,9 +48,9 @@
         android:id="@+id/tvTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="15 C"
+        android:text="--"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@android:color/holo_red_dark"
+        android:textColor="@android:color/black"
         android:textStyle="bold"
         app:layout_constraintLeft_toRightOf="@+id/tempText"
         tools:layout_editor_absoluteY="0dp"
@@ -68,7 +68,7 @@
         android:layout_width="135dp"
         android:layout_height="43dp"
 
-        android:text="5432 LM"
+        android:text="--"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/black"
         android:textStyle="bold"
@@ -87,11 +87,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="94dp"
-        android:text="98%"
+        android:text="--"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/humidText"
-        android:layout_marginLeft="0dp" />
+        android:layout_marginLeft="0dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        />
 
 
     <!--

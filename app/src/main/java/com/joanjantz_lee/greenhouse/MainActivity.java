@@ -146,6 +146,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    protected void checkValues(View v){
+        checkHumidity(v);
+        checkLuminosity(v);
+        checkTemp(v);
+    }
 
 }

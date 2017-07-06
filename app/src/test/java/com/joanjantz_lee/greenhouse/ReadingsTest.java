@@ -40,11 +40,29 @@ public class ReadingsTest {
     @Mock
     private TextView tvTemp;
 
+    //temp high and low
+
     @Mock
     private TextView outputTH;
 
     @Mock
     private TextView outputTL;
+
+    //lumin high and low
+
+    @Mock
+    private TextView outputLH;
+
+    @Mock
+    private TextView outputLL;
+
+    //humidity high and low
+
+    @Mock
+    private TextView outputHH;
+
+    @Mock
+    private TextView outputHL;
 
     @Mock
     private View v;
@@ -86,14 +104,42 @@ public class ReadingsTest {
     public void testSetTempHigh() throws Exception {
         String tempHighRange = "25";
         //sut.setThi(v);
-        verify(outputTH).equals(tempHighRange);
+        verify(outputTH.toString()).equals(tempHighRange);
     }
 
     @Test
     public void testSetTempLow() throws Exception {
         String tempLowRange = "5";
         //sut.setTlow(v);
-        verify(outputTL).equals(tempLowRange);
+        verify(outputTL.toString()).equals(tempLowRange);
+    }
+
+    @Test
+    public void testSetLuminHigh() throws Exception {
+        String luminHighRange = "25";
+        //sut.setThi(v);
+        verify(outputLH.toString()).equals(luminHighRange);
+    }
+
+    @Test
+    public void testSetLuminLow() throws Exception {
+        String luminLowRange = "5";
+        //sut.setTlow(v);
+        verify(outputLL.toString()).equals(luminLowRange);
+    }
+
+    @Test
+    public void testSetHumidityHigh() throws Exception {
+        String humidityHighRange = "25";
+        //sut.setThi(v);
+        verify(outputHH.toString()).equals(humidityHighRange);
+    }
+
+    @Test
+    public void testSetHumidityLow() throws Exception {
+        String humidityLowRange = "5";
+        //sut.setTlow(v);
+        verify(outputHL.toString()).equals(humidityLowRange);
     }
 
     @Test

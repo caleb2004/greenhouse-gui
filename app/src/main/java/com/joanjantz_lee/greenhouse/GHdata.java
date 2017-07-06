@@ -24,15 +24,55 @@ public class GHdata {
     private double maxLuminosity;
     private double minLuminosity;
 
+    //==============================
+    // SETTEMPCOLOR
+    //==============================
+
     public void setTempColor(TextView tv)
     {
-
-
         if (getTemperature()>getMaxTemperature())
         {
             tv.setTextColor(Color.RED);
         }
         else if (getTemperature() < getMinTemperature())
+        {
+            tv.setTextColor(Color.LTGRAY);
+        }
+        else
+        {
+            tv.setTextColor(Color.BLACK);
+        }
+    }
+
+    //===============================
+    // SETHUMIDITYCOLOR
+    //===============================
+
+    public void setHumidityColor(TextView tv)
+    {
+        if (getHumidity()>getMaxHumidity())
+        {
+            tv.setTextColor(Color.RED);
+        }
+        else if (getHumidity() < getMinHumidity())
+        {
+            tv.setTextColor(Color.LTGRAY);
+        }
+        else
+        {
+            tv.setTextColor(Color.BLACK);
+        }
+    }
+    //=================================
+    // SETLUMINOSITYCOLOR
+    //==================================
+    public void setLuminosityColor(TextView tv)
+    {
+        if (getLuminosity()>getMaxLuminosity())
+        {
+            tv.setTextColor(Color.RED);
+        }
+        else if (getLuminosity() < getMinLuminosity())
         {
             tv.setTextColor(Color.LTGRAY);
         }
@@ -73,17 +113,17 @@ public class GHdata {
     //========================
     public GHdata()
     {
-        setMaxTemperature(38);
-        setTemperature   (14.3);
-        setMinTemperature(5);
+        setMaxTemperature(100);
+        setTemperature   (50);
+        setMinTemperature(0);
 
-        setMaxHumidity   (95);
-        setHumidity      (82);
-        setMinHumidity   (40);
+        setMaxHumidity   (101);
+        setHumidity      (51);
+        setMinHumidity   (1);
 
-        setMaxLuminosity (7000);
-        setLuminosity    (8765);
-        setMinLuminosity (2000);
+        setMaxLuminosity (102);
+        setLuminosity    (52);
+        setMinLuminosity (2);
     }
 
     public GHdata(

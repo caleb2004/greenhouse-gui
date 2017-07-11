@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
     ////////////////////////////////////
     protected void setThi(View v){
 
-        EditText inputT = (EditText) findViewById(R.id.numT);
+        EditText inputT = (EditText) findViewById(R.id.maxTempInput);
         double T = Double.parseDouble(inputT.getText().toString());
         dataBlob.setMaxTemperature(T);
         T = dataBlob.getMaxTemperature();
@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
     protected void setTlow(View v){
 
 
-        EditText inputT = (EditText) findViewById(R.id.numT);
+        EditText inputT = (EditText) findViewById(R.id.minTempInput);
         double T = Double.parseDouble(inputT.getText().toString());
         dataBlob.setMinTemperature(T);
         T = dataBlob.getMinTemperature();
@@ -234,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
     ////////////////////////////////////////
     protected void setHH(View v){
 
-        EditText inputT = (EditText) findViewById(R.id.numT);
+        EditText inputT = (EditText) findViewById(R.id.maxHumidityInput);
         double T = Double.parseDouble(inputT.getText().toString());
         dataBlob.setMaxHumidity(T);
         T = dataBlob.getMaxHumidity();
@@ -254,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
     protected void setHL(View v){
 
 
-        EditText inputT = (EditText) findViewById(R.id.numT);
+        EditText inputT = (EditText) findViewById(R.id.minHumidityInput);
         double T = Double.parseDouble(inputT.getText().toString());
         dataBlob.setMinHumidity(T);
         T = dataBlob.getMinHumidity();
@@ -273,7 +273,7 @@ public class MainActivity extends AppCompatActivity {
     ///////////////////////////////////////
     protected void setLH(View v){
 
-        EditText inputT = (EditText) findViewById(R.id.numT);
+        EditText inputT = (EditText) findViewById(R.id.maxLuminosityInput);
         double T = Double.parseDouble(inputT.getText().toString());
         dataBlob.setMaxLuminosity(T);
         T = dataBlob.getMaxLuminosity();
@@ -293,7 +293,7 @@ public class MainActivity extends AppCompatActivity {
     protected void setLL(View v){
 
 
-        EditText inputT = (EditText) findViewById(R.id.numT);
+        EditText inputT = (EditText) findViewById(R.id.minLuminosityInput);
         double T = Double.parseDouble(inputT.getText().toString());
         dataBlob.setMinLuminosity(T);
         T = dataBlob.getMinLuminosity();

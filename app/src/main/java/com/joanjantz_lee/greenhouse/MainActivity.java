@@ -49,16 +49,15 @@ public class MainActivity extends AppCompatActivity {
         tvLumin = (TextView)findViewById(R.id.tvLumin);
         firebaseReference = firebaseDBInstance.getReference("Light: ");
 
-        firebaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        firebaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 String value = (String) dataSnapshot.getValue();
+                // Put the luminosity onto the display
+                tvLumin.setText(value);
                 // Strip out anything not numeric.
                 value=value.replaceAll("[^0-9.]","");
-
-                // Put the luminosity onto the display
-                tvLumin.setText(value+" L");
 
                 // Turn the luminosity value (a string)
                 // into a double for storage in the dataBlob.
@@ -94,16 +93,15 @@ public class MainActivity extends AppCompatActivity {
         tvHumid = (TextView)findViewById(R.id.tvHumid);
         firebaseReference = firebaseDBInstance.getReference("Humidity: ");
 
-        firebaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        firebaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 String value = (String) dataSnapshot.getValue();
+                // Put the humidity onto the display
+                tvHumid.setText(value);
                 // Strip out anything not numeric.
                 value=value.replaceAll("[^0-9.]","");
-
-                // Put the humidity onto the display
-                tvHumid.setText(value+" %");
 
                 // Turn the humidity value (a string)
                 // into a double for storage in the dataBlob.
@@ -139,16 +137,15 @@ public class MainActivity extends AppCompatActivity {
         tvTemp = (TextView)findViewById(R.id.tvTemp);
         firebaseReference = firebaseDBInstance.getReference("Temperature: ");
 
-        firebaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        firebaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 String value = (String) dataSnapshot.getValue();
+                // Put the temperature onto the display
+                tvTemp.setText(value);
                 // Strip out anything not numeric.
                 value=value.replaceAll("[^0-9.]","");
-
-                // Put the temperature onto the display
-                tvTemp.setText(value+" C");
 
                 // Turn the temperature value (a string)
                 // into a double for storage in the dataBlob.
@@ -183,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
     protected void checkTemp(View v){
         double T = dataBlob.getTemperature();
         TextView outputT = (TextView) findViewById(R.id.tvTemp);
-        outputT.setText(""+T+"C");
+        //outputT.setText(""+T+"C");
 
     }
 
@@ -316,7 +313,7 @@ public class MainActivity extends AppCompatActivity {
 
         double H = dataBlob.getHumidity();
         TextView outputH = (TextView) findViewById(R.id.tvHumid);
-        outputH.setText(""+H+"%");
+        //outputH.setText(""+H+"%");
 
     }
 
@@ -329,7 +326,7 @@ public class MainActivity extends AppCompatActivity {
 
         double L = dataBlob.getLuminosity();
         TextView outputL = (TextView) findViewById(R.id.tvLumin);
-        outputL.setText(""+L+"L");
+        //outputL.setText(""+L+"L");
 
     }
 

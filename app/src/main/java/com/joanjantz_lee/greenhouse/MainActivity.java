@@ -66,10 +66,10 @@ public class MainActivity extends AppCompatActivity {
 
                 // Get the current max and min values and put them on the screen
                 L = dataBlob.getMaxLuminosity();
-                TextView outputLH = (TextView) findViewById(R.id.tvLH);
+                TextView outputLH = (TextView) findViewById(R.id.maxLuminosityInput);
                 outputLH.setText(""+L+"L");
                 L = dataBlob.getMinLuminosity();
-                TextView outputLL = (TextView) findViewById(R.id.tvLL);
+                TextView outputLL = (TextView) findViewById(R.id.minLuminosityInput);
                 outputLL.setText(""+L+"L");
 
                 // Set the colour of the display accordingly.
@@ -110,10 +110,10 @@ public class MainActivity extends AppCompatActivity {
 
                 // Get the current max and min values and put them on the screen
                 H = dataBlob.getMaxHumidity();
-                TextView outputHH = (TextView) findViewById(R.id.tvHH);
+                TextView outputHH = (TextView) findViewById(R.id.maxHumidityInput);
                 outputHH.setText(""+H+"%");
                 H = dataBlob.getMinHumidity();
-                TextView outputHL = (TextView) findViewById(R.id.tvHL);
+                TextView outputHL = (TextView) findViewById(R.id.minHumidityInput);
                 outputHL.setText(""+H+"%");
 
                 // Set the colour of the display accordingly.
@@ -154,10 +154,10 @@ public class MainActivity extends AppCompatActivity {
 
                 // Get the current max and min values and put them on the screen
                 T = dataBlob.getMaxTemperature();
-                TextView outputTH = (TextView) findViewById(R.id.tvThigh);
+                TextView outputTH = (TextView) findViewById(R.id.maxTempInput);
                 outputTH.setText(""+T+"C");
                 T = dataBlob.getMinTemperature();
-                TextView outputTL = (TextView) findViewById(R.id.tvTlow);
+                TextView outputTL = (TextView) findViewById(R.id.minTempInput);
                 outputTL.setText(""+T+"C");
 
                 // Set the colour of the display accordingly.
@@ -195,8 +195,8 @@ public class MainActivity extends AppCompatActivity {
         double T = Double.parseDouble(inputT.getText().toString());
         dataBlob.setMaxTemperature(T);
         T = dataBlob.getMaxTemperature();
-        TextView outputTH = (TextView) findViewById(R.id.tvThigh);
-        outputTH.setText(""+T+"C");
+        //TextView outputTH = (TextView) findViewById(R.id.tvThigh);
+        //outputTH.setText(""+T+"C");
         tvTemp = (TextView)findViewById(R.id.tvTemp);
 
         dataBlob.setTempColor(tvTemp);
@@ -215,8 +215,8 @@ public class MainActivity extends AppCompatActivity {
         double T = Double.parseDouble(inputT.getText().toString());
         dataBlob.setMinTemperature(T);
         T = dataBlob.getMinTemperature();
-        TextView outputTL = (TextView) findViewById(R.id.tvTlow);
-        outputTL.setText(""+T+"C");
+       // TextView outputTL = (TextView) findViewById(R.id.tvTlow);
+        //outputTL.setText(""+T+"C");
 
         tvTemp = (TextView)findViewById(R.id.tvTemp);
 
@@ -235,8 +235,8 @@ public class MainActivity extends AppCompatActivity {
         double T = Double.parseDouble(inputT.getText().toString());
         dataBlob.setMaxHumidity(T);
         T = dataBlob.getMaxHumidity();
-        TextView outputHH = (TextView) findViewById(R.id.tvHH);
-        outputHH.setText(""+T+"%");
+        //TextView outputHH = (TextView) findViewById(R.id.tvHH);
+        //outputHH.setText(""+T+"%");
         tvHumid = (TextView)findViewById(R.id.tvHumid);
 
         dataBlob.setHumidityColor(tvHumid);
@@ -255,8 +255,8 @@ public class MainActivity extends AppCompatActivity {
         double T = Double.parseDouble(inputT.getText().toString());
         dataBlob.setMinHumidity(T);
         T = dataBlob.getMinHumidity();
-        TextView outputHL = (TextView) findViewById(R.id.tvHL);
-        outputHL.setText(""+T+"%");
+        //TextView outputHL = (TextView) findViewById(R.id.tvHL);
+        //outputHL.setText(""+T+"%");
 
         tvHumid = (TextView)findViewById(R.id.tvHumid);
 
@@ -274,8 +274,8 @@ public class MainActivity extends AppCompatActivity {
         double T = Double.parseDouble(inputT.getText().toString());
         dataBlob.setMaxLuminosity(T);
         T = dataBlob.getMaxLuminosity();
-        TextView outputLH = (TextView) findViewById(R.id.tvLH);
-        outputLH.setText(""+T+"L");
+        //TextView outputLH = (TextView) findViewById(R.id.tvLH);
+        //outputLH.setText(""+T+"L");
         tvLumin = (TextView)findViewById(R.id.tvLumin);
 
         dataBlob.setLuminosityColor(tvLumin);
@@ -294,8 +294,8 @@ public class MainActivity extends AppCompatActivity {
         double T = Double.parseDouble(inputT.getText().toString());
         dataBlob.setMinLuminosity(T);
         T = dataBlob.getMinLuminosity();
-        TextView outputLL = (TextView) findViewById(R.id.tvLL);
-        outputLL.setText(""+T+"L");
+       // TextView outputLL = (TextView) findViewById(R.id.tvLL);
+       // outputLL.setText(""+T+"L");
 
         tvLumin = (TextView)findViewById(R.id.tvLumin);
 

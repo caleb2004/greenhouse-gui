@@ -63,24 +63,24 @@ public class ReadingsUITest {
 
     @Test
     public void testSetHighTemp() {
-        onView(withId(R.id.numT))
+        onView(withId(R.id.maxTempInput))
                 .perform(typeText(hiTempRange), closeSoftKeyboard());
-        onView(withId(R.id.btThigh)).perform(click());
+        onView(withId(R.id.btnUpdate)).perform(click());
 
         // Check that the text was changed.
-        onView(withId(R.id.tvThigh))
+        onView(withId(R.id.maxTempInput))
                 .check(matches(withText(hiTempRange)));
     }
 
 
     @Test
     public void testSetLowTemp() {
-        onView(withId(R.id.numT))
+        onView(withId(R.id.minTempInput))
                 .perform(typeText(lowTempRange), closeSoftKeyboard());
-        onView(withId(R.id.btTlow)).perform(click());
+        onView(withId(R.id.btnUpdate)).perform(click());
 
         // Check that the text was changed.
-        onView(withId(R.id.tvTlow))
+        onView(withId(R.id.minTempInput))
                 .check(matches(withText(lowTempRange)));
     }
 

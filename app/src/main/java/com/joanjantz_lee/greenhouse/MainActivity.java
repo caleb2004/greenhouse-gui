@@ -5,8 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,9 +15,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-//////////////////////////////
-// MAIN ACTIVITY
-//////////////////////////////
 public class MainActivity extends AppCompatActivity {
     GHdata dataBlob = new GHdata();
     public FirebaseDatabase firebaseDBInstance = FirebaseDatabase.getInstance();
@@ -40,11 +35,6 @@ public class MainActivity extends AppCompatActivity {
         setTempLevels();
     }
 
-    //////////////////////////
-    //
-    // SETLUMINLEVELS
-    //
-    //////////////////////////
     public void setLuminLevels() {
         tvLumin = (TextView)findViewById(R.id.tvLumin);
         firebaseReference = firebaseDBInstance.getReference("Light: ");
@@ -84,11 +74,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    ////////////////////////////////////////
-    //
-    // SETHUMIDLEVELS
-    //
-    ////////////////////////////////////////
     public void setHumidLevels() {
         tvHumid = (TextView)findViewById(R.id.tvHumid);
         firebaseReference = firebaseDBInstance.getReference("Humidity: ");
@@ -128,11 +113,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //////////////////////////////////
-    //
-    // SETTEMPLEVELS
-    //
-    //////////////////////////////////
     public void setTempLevels() {
         tvTemp = (TextView)findViewById(R.id.tvTemp);
         firebaseReference = firebaseDBInstance.getReference("Temperature: ");
@@ -172,172 +152,55 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    ///////////////////////////////////
-    //
-    // CHECKTEMP
-    //
-    ///////////////////////////////////
-    protected void checkTemp(View v){
-        double T = dataBlob.getTemperature();
-        TextView outputT = (TextView) findViewById(R.id.tvTemp);
-        //outputT.setText(""+T+"C");
+    public void setValues(View v){
 
-    }
-
-    ////////////////////////////////////
-    //
-    // SETTHI
-    //
-    ////////////////////////////////////
-    protected void setThi(View v){
-
-        EditText inputT = (EditText) findViewById(R.id.maxTempInput);
-        double T = Double.parseDouble(inputT.getText().toString());
-        dataBlob.setMaxTemperature(T);
-        T = dataBlob.getMaxTemperature();
-        //TextView outputTH = (TextView) findViewById(R.id.tvThigh);
-        //outputTH.setText(""+T+"C");
+        //minTemp
+        EditText minTempInput = (EditText) findViewById(R.id.minTempInput);
+        double minT = Double.parseDouble(minTempInput.getText().toString());
+        dataBlob.setMinTemperature(minT);
+        minT = dataBlob.getMinTemperature();
         tvTemp = (TextView)findViewById(R.id.tvTemp);
-
         dataBlob.setTempColor(tvTemp);
 
-    }
-
-    //////////////////////////////////////////
-    //
-    // SETTLOW
-    //
-    ////////////////////////////////////////////
-    protected void setTlow(View v){
-
-
-        EditText inputT = (EditText) findViewById(R.id.minTempInput);
-        double T = Double.parseDouble(inputT.getText().toString());
-        dataBlob.setMinTemperature(T);
-        T = dataBlob.getMinTemperature();
-       // TextView outputTL = (TextView) findViewById(R.id.tvTlow);
-        //outputTL.setText(""+T+"C");
-
+        //maxTemp
+        EditText maxTempInput = (EditText) findViewById(R.id.maxTempInput);
+        double maxT = Double.parseDouble(maxTempInput.getText().toString());
+        dataBlob.setMaxTemperature(maxT);
+        maxT = dataBlob.getMaxTemperature();
         tvTemp = (TextView)findViewById(R.id.tvTemp);
-
         dataBlob.setTempColor(tvTemp);
 
-    }
-
-    ///////////////////////////////////////
-    //
-    // SETHH HUMIDITY HIGH
-    //
-    ////////////////////////////////////////
-    protected void setHH(View v){
-
-        EditText inputT = (EditText) findViewById(R.id.maxHumidityInput);
-        double T = Double.parseDouble(inputT.getText().toString());
-        dataBlob.setMaxHumidity(T);
-        T = dataBlob.getMaxHumidity();
-        //TextView outputHH = (TextView) findViewById(R.id.tvHH);
-        //outputHH.setText(""+T+"%");
-        tvHumid = (TextView)findViewById(R.id.tvHumid);
-
-        dataBlob.setHumidityColor(tvHumid);
-
-    }
-
-    /////////////////////////////////
-    //
-    // SETHL HUMIDITY LOW
-    //
-    /////////////////////////////////
-    protected void setHL(View v){
-
-
-        EditText inputT = (EditText) findViewById(R.id.minHumidityInput);
-        double T = Double.parseDouble(inputT.getText().toString());
-        dataBlob.setMinHumidity(T);
-        T = dataBlob.getMinHumidity();
-        //TextView outputHL = (TextView) findViewById(R.id.tvHL);
-        //outputHL.setText(""+T+"%");
-
-        tvHumid = (TextView)findViewById(R.id.tvHumid);
-
-        dataBlob.setHumidityColor(tvHumid);
-
-    }
-    ///////////////////////////////////////
-    //
-    // SETLH LUMINOSITY HIGH
-    //
-    ///////////////////////////////////////
-    protected void setLH(View v){
-
-        EditText inputT = (EditText) findViewById(R.id.maxLuminosityInput);
-        double T = Double.parseDouble(inputT.getText().toString());
-        dataBlob.setMaxLuminosity(T);
-        T = dataBlob.getMaxLuminosity();
-        //TextView outputLH = (TextView) findViewById(R.id.tvLH);
-        //outputLH.setText(""+T+"L");
+        //minLuminosity
+        EditText minLumensInput = (EditText) findViewById(R.id.minLuminosityInput);
+        double minL = Double.parseDouble(minLumensInput.getText().toString());
+        dataBlob.setMinLuminosity(minL);
+        minL = dataBlob.getMinLuminosity();
         tvLumin = (TextView)findViewById(R.id.tvLumin);
-
         dataBlob.setLuminosityColor(tvLumin);
 
-    }
-
-    ///////////////////////////////////////////
-    //
-    // SET LL LUMINOSITY LOW
-    //
-    ///////////////////////////////////////////
-    protected void setLL(View v){
-
-
-        EditText inputT = (EditText) findViewById(R.id.minLuminosityInput);
-        double T = Double.parseDouble(inputT.getText().toString());
-        dataBlob.setMinLuminosity(T);
-        T = dataBlob.getMinLuminosity();
-       // TextView outputLL = (TextView) findViewById(R.id.tvLL);
-       // outputLL.setText(""+T+"L");
-
+        //maxLuminosity
+        EditText maxLumensInput = (EditText) findViewById(R.id.maxLuminosityInput);
+        double maxL = Double.parseDouble(maxLumensInput.getText().toString());
+        dataBlob.setMaxLuminosity(maxL);
+        maxL = dataBlob.getMaxLuminosity();
         tvLumin = (TextView)findViewById(R.id.tvLumin);
-
         dataBlob.setLuminosityColor(tvLumin);
 
+        //minHumidity
+        EditText minHumidityInput = (EditText) findViewById(R.id.minHumidityInput);
+        double minH = Double.parseDouble(minHumidityInput.getText().toString());
+        dataBlob.setMinHumidity(minH);
+        minH = dataBlob.getMinHumidity();
+        tvHumid = (TextView)findViewById(R.id.tvHumid);
+        dataBlob.setHumidityColor(tvHumid);
+
+        //maxHumidity
+        EditText maxHumidityInput = (EditText) findViewById(R.id.maxHumidityInput);
+        double maxH = Double.parseDouble(maxHumidityInput.getText().toString());
+        dataBlob.setMaxHumidity(maxH);
+        maxH = dataBlob.getMaxHumidity();
+        tvHumid = (TextView)findViewById(R.id.tvHumid);
+        dataBlob.setHumidityColor(tvHumid);
     }
-
-
-    /////////////////////////////////
-    //
-    // CHECKHUMIDITY
-    //
-    /////////////////////////////////
-    protected void checkHumidity(View v){
-
-        double H = dataBlob.getHumidity();
-        TextView outputH = (TextView) findViewById(R.id.tvHumid);
-        //outputH.setText(""+H+"%");
-
-    }
-
-    ////////////////////////////////////
-    //
-    // CHECKLUMINOSITY
-    //
-    /////////////////////////////////////
-    protected void checkLuminosity(View v){
-
-        double L = dataBlob.getLuminosity();
-        TextView outputL = (TextView) findViewById(R.id.tvLumin);
-        //outputL.setText(""+L+"L");
-
-    }
-
-    public void checkValues(View v){
-        setLH(v);
-        setLL(v);
-        setHH(v);
-        setHL(v);
-        setThi(v);
-        setTlow(v);
-    }
-
 
 }

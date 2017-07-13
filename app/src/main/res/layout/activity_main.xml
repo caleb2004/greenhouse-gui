@@ -112,8 +112,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tvHumid"
         app:layout_constraintLeft_toRightOf="parent"
-        android:background="@android:color/holo_green_dark"
-        android:onClick="checkValues"
+        android:background="#496D3C"
+        android:textColor="#FFFFFF"
+        android:onClick="setValues"
+
         android:text="Update Thresholds"
         android:layout_marginTop="15dp"
      />

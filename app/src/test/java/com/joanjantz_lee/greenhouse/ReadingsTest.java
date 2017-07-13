@@ -1,6 +1,8 @@
 package com.joanjantz_lee.greenhouse;
 
 import android.content.Intent;
+import android.support.annotation.RequiresPermission;
+import android.test.ActivityInstrumentationTestCase2;
 import android.view.View;
 import android.widget.TextView;
 
@@ -21,8 +23,9 @@ import org.mockito.MockitoAnnotations;
 
 import static org.mockito.Mockito.*;
 
-public class ReadingsTest {
+public class ReadingsTest extends ActivityInstrumentationTestCase2<MainActivity> {
 
+    MainActivity mainActivity;
     //create fake objects for outside the scope of the test with mocks
 
     @Mock
@@ -31,7 +34,6 @@ public class ReadingsTest {
     @Mock
     private FirebaseDatabase firebaseDBInstance;
 
-    @Mock
     private TextView tvLumin;
 
     @Mock
@@ -71,11 +73,24 @@ public class ReadingsTest {
     //@InjectMocks
     private MainActivity sut;
 
+    @SuppressWarnings("deprecation")
+    public ReadingsTest()
+    {
+        super("com.joanjantz_lee.greenhouse.MainActivity", MainActivity.class);
+    }
+
     @Before
-    public void setup() {
+    @Override
+    public void setUp() throws Exception{
+        super.setUp();
+        mainActivity = this.getActivity();
+
+        tvLumin = (TextView) mainActivity.findViewById(R.id.tvLumin);
+
         //set what will be returned when methods called
         MockitoAnnotations.initMocks(this);
 
+        super.setUp();
         when(firebaseDBInstance.getReference(anyString())).thenReturn(firebaseReference);
     }
 

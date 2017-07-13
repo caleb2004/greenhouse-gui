@@ -67,10 +67,10 @@ public class MainActivity extends AppCompatActivity {
                 // Get the current max and min values and put them on the screen
                 L = dataBlob.getMaxLuminosity();
                 TextView outputLH = (TextView) findViewById(R.id.maxLuminosityInput);
-                outputLH.setText(""+L+"L");
+                outputLH.setText(""+L);
                 L = dataBlob.getMinLuminosity();
                 TextView outputLL = (TextView) findViewById(R.id.minLuminosityInput);
-                outputLL.setText(""+L+"L");
+                outputLL.setText(""+L);
 
                 // Set the colour of the display accordingly.
                 dataBlob.setLuminosityColor(tvLumin);
@@ -111,10 +111,10 @@ public class MainActivity extends AppCompatActivity {
                 // Get the current max and min values and put them on the screen
                 H = dataBlob.getMaxHumidity();
                 TextView outputHH = (TextView) findViewById(R.id.maxHumidityInput);
-                outputHH.setText(""+H+"%");
+                outputHH.setText(""+H);
                 H = dataBlob.getMinHumidity();
                 TextView outputHL = (TextView) findViewById(R.id.minHumidityInput);
-                outputHL.setText(""+H+"%");
+                outputHL.setText(""+H);
 
                 // Set the colour of the display accordingly.
                 dataBlob.setHumidityColor(tvHumid);
@@ -155,10 +155,10 @@ public class MainActivity extends AppCompatActivity {
                 // Get the current max and min values and put them on the screen
                 T = dataBlob.getMaxTemperature();
                 TextView outputTH = (TextView) findViewById(R.id.maxTempInput);
-                outputTH.setText(""+T+"C");
+                outputTH.setText(""+T);
                 T = dataBlob.getMinTemperature();
                 TextView outputTL = (TextView) findViewById(R.id.minTempInput);
-                outputTL.setText(""+T+"C");
+                outputTL.setText(""+T);
 
                 // Set the colour of the display accordingly.
                 dataBlob.setTempColor(tvTemp);
@@ -330,6 +330,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void checkValues(View v){
+        setLH(v);
+        setLL(v);
+        setHH(v);
+        setHL(v);
+        setThi(v);
+        setTlow(v);
+    }
 
 
 }

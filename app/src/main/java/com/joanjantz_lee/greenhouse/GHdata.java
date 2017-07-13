@@ -25,7 +25,7 @@ public class GHdata {
     private double minLuminosity;
 
     //==============================
-    // SETTEMPCOLOR
+    // SET_TEMP_COLOUR
     //==============================
 
     public void setTempColor(TextView tv)
@@ -45,7 +45,7 @@ public class GHdata {
     }
 
     //===============================
-    // SETHUMIDITYCOLOR
+    // SET_HUMIDITY_COLOUR
     //===============================
 
     public void setHumidityColor(TextView tv)
@@ -64,7 +64,7 @@ public class GHdata {
         }
     }
     //=================================
-    // SETLUMINOSITYCOLOR
+    // SET_LUMINOSITY_COLOUR
     //==================================
     public void setLuminosityColor(TextView tv)
     {

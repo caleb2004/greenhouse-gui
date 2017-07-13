@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -64,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
 
                 // Set the colour of the display accordingly.
                 dataBlob.setLuminosityColor(tvLumin);
-
             }
 
             @Override
@@ -201,6 +201,10 @@ public class MainActivity extends AppCompatActivity {
         maxH = dataBlob.getMaxHumidity();
         tvHumid = (TextView)findViewById(R.id.tvHumid);
         dataBlob.setHumidityColor(tvHumid);
+
+
+        //TOAST which shows data has been succesfully set
+        Toast.makeText(this, "Ranges Set Successfully", Toast.LENGTH_SHORT).show();
     }
 
 }

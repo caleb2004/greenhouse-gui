@@ -17,9 +17,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-//////////////////////////////
-// MAIN ACTIVITY
-//////////////////////////////
 public class MainActivity extends AppCompatActivity {
     GHdata dataBlob = new GHdata();
     public FirebaseDatabase firebaseDBInstance = FirebaseDatabase.getInstance();
@@ -40,11 +37,6 @@ public class MainActivity extends AppCompatActivity {
         setTempLevels();
     }
 
-    //////////////////////////
-    //
-    // SETLUMINLEVELS
-    //
-    //////////////////////////
     public void setLuminLevels() {
         tvLumin = (TextView)findViewById(R.id.tvLumin);
         firebaseReference = firebaseDBInstance.getReference("Light: ");
@@ -83,12 +75,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    ////////////////////////////////////////
-    //
-    // SETHUMIDLEVELS
-    //
-    ////////////////////////////////////////
 
     public void setHumidLevels() {
         tvHumid = (TextView)findViewById(R.id.tvHumid);
@@ -129,12 +115,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //////////////////////////////////
-    //
-    // SETTEMPLEVELS
-    //
-    //////////////////////////////////
-
     public void setTempLevels() {
         tvTemp = (TextView)findViewById(R.id.tvTemp);
         firebaseReference = firebaseDBInstance.getReference("Temperature: ");
@@ -172,49 +152,6 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("The read failed: " + databaseError.getCode());
             }
         });
-    }
-
-    /*
-    ///////////////////////////////////
-    //
-    // CHECKTEMP
-    //
-    ///////////////////////////////////
-    protected void checkTemp(View v){
-        double T = dataBlob.getTemperature();
-        TextView outputT = (TextView) findViewById(R.id.tvTemp);
-        //outputT.setText(""+T+"C");
-
-    }
-    */
-
-
-
-
-    /////////////////////////////////
-    //
-    // CHECKHUMIDITY
-    //
-    /////////////////////////////////
-    protected void checkHumidity(View v){
-
-        double H = dataBlob.getHumidity();
-        TextView outputH = (TextView) findViewById(R.id.tvHumid);
-        //outputH.setText(""+H+"%");
-
-    }
-
-    ////////////////////////////////////
-    //
-    // CHECKLUMINOSITY
-    //
-    /////////////////////////////////////
-    protected void checkLuminosity(View v){
-
-        double L = dataBlob.getLuminosity();
-        TextView outputL = (TextView) findViewById(R.id.tvLumin);
-        //outputL.setText(""+L+"L");
-
     }
 
     public void setValues(View v){

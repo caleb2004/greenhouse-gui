@@ -1,3 +1,5 @@
+package com.joanjantz_lee.data;
+
 //========================
 // Joan Jantz-Lee
 // Greenhouse Data Class 

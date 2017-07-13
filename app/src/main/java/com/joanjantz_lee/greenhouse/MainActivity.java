@@ -45,13 +45,13 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 String value = (String) dataSnapshot.getValue();
-                // Put the luminosity onto the display
-                tvLumin.setText(value);
-                // Strip out anything not numeric.
-                value=value.replaceAll("[^0-9.]","");
+                tvLumin.setText(value);               // Put the luminosity onto the display
+                value=value.replaceAll("[^0-9.]",""); // Strip out anything not numeric.
 
-                // Turn the luminosity value (a string)
-                // into a double for storage in the dataBlob.
+                /*
+                * Turn the luminosity value (a string)
+                * into a double for storage in the dataBlob.
+                * */
                 double L =Double.parseDouble(String.valueOf(value));
                 dataBlob.setLuminosity(L);
 
@@ -83,13 +83,13 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 String value = (String) dataSnapshot.getValue();
-                // Put the humidity onto the display
-                tvHumid.setText(value);
-                // Strip out anything not numeric.
-                value=value.replaceAll("[^0-9.]","");
+                tvHumid.setText(value);               // Put the humidity onto the display
+                value=value.replaceAll("[^0-9.]",""); // Strip out anything not numeric.
 
-                // Turn the humidity value (a string)
-                // into a double for storage in the dataBlob.
+                /*
+                * Turn the humidity value (a string)
+                * into a double for storage in the dataBlob.
+                * */
                 double H =Double.parseDouble(String.valueOf(value));
                 dataBlob.setHumidity(H);
 
@@ -122,13 +122,13 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 String value = (String) dataSnapshot.getValue();
-                // Put the temperature onto the display
-                tvTemp.setText(value);
-                // Strip out anything not numeric.
-                value=value.replaceAll("[^0-9.]","");
+                tvTemp.setText(value);                 // Put the temperature onto the display
+                value=value.replaceAll("[^0-9.]","");  // Strip out anything not numeric.
 
-                // Turn the temperature value (a string)
-                // into a double for storage in the dataBlob.
+                /*
+                * Turn the temperature value (a string)
+                * into a double for storage in the dataBlob.
+                * */
                 double T =Double.parseDouble(String.valueOf(value));
                 dataBlob.setTemperature(T);
 

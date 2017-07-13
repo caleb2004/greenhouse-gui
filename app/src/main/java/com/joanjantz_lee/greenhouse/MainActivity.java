@@ -5,8 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -204,6 +202,5 @@ public class MainActivity extends AppCompatActivity {
         tvHumid = (TextView)findViewById(R.id.tvHumid);
         dataBlob.setHumidityColor(tvHumid);
     }
-
 
 }

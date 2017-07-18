@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         //set the displayed levels
         setLuminLevels();
         setHumidLevels();
@@ -201,6 +200,8 @@ public class MainActivity extends AppCompatActivity {
         maxH = dataBlob.getMaxHumidity();
         tvHumid = (TextView)findViewById(R.id.tvHumid);
         dataBlob.setHumidityColor(tvHumid);
+
+
     }
 
 }

@@ -1,13 +1,10 @@
 package com.joanjantz_lee.greenhouse;
 
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -36,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setTempLevels();
     }
 
-    public void setLuminLevels() {
+    protected void setLuminLevels() {
         tvLumin = (TextView)findViewById(R.id.tvLumin);
         firebaseReference = firebaseDBInstance.getReference("Light: ");
 
@@ -45,26 +42,34 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 String value = (String) dataSnapshot.getValue();
-                tvLumin.setText(value);               // Put the luminosity onto the display
-                value=value.replaceAll("[^0-9.]",""); // Strip out anything not numeric.
+                tvLumin.setText(value);                 // Put the luminosity onto the display
+                value = value.replaceAll("[^0-9.]", ""); // Strip out anything not numeric.
+
+                /*
+                * Instance variables for:
+                * User visualisation
+                * Range checking
+                * */
+                double LH; //luminosity_high
+                double LL; //luminosity_low
 
                 /*
                 * Turn the luminosity value (a string)
                 * into a double for storage in the dataBlob.
                 * */
-                double L =Double.parseDouble(String.valueOf(value));
-                dataBlob.setLuminosity(L);
+                dataBlob.setLuminosity(Double.parseDouble(String.valueOf(value)));
 
                 // Get the current max and min values and put them on the screen
-                L = dataBlob.getMaxLuminosity();
+                LH = dataBlob.getMaxLuminosity();
                 TextView outputLH = (TextView) findViewById(R.id.maxLuminosityInput);
-                outputLH.setText(""+L);
-                L = dataBlob.getMinLuminosity();
+                outputLH.setText(String.valueOf(LH));
+                LL = dataBlob.getMinLuminosity();
                 TextView outputLL = (TextView) findViewById(R.id.minLuminosityInput);
-                outputLL.setText(""+L);
+                outputLL.setText(String.valueOf(LL));
 
                 // Set the colour of the display accordingly.
                 dataBlob.setLuminosityColor(tvLumin);
+                //if (Integer.parseInt(value) > 0 || LL > Integer.parseInt(value)) {}
             }
 
             @Override
@@ -74,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void setHumidLevels() {
+    protected void setHumidLevels() {
         tvHumid = (TextView)findViewById(R.id.tvHumid);
         firebaseReference = firebaseDBInstance.getReference("Humidity: ");
 
@@ -83,27 +88,34 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 String value = (String) dataSnapshot.getValue();
-                tvHumid.setText(value);               // Put the humidity onto the display
-                value=value.replaceAll("[^0-9.]",""); // Strip out anything not numeric.
+                tvHumid.setText(value);                  // Put the humidity onto the display
+                value = value.replaceAll("[^0-9.]", ""); // Strip out anything not numeric.
+
+                /*
+                * Instance variables for:
+                * User visualisation
+                * Range checking
+                * */
+                double HH; //humidity_high reading
+                double HL; //humidity_low reading
 
                 /*
                 * Turn the humidity value (a string)
                 * into a double for storage in the dataBlob.
                 * */
-                double H =Double.parseDouble(String.valueOf(value));
-                dataBlob.setHumidity(H);
+                dataBlob.setHumidity(Double.parseDouble(String.valueOf(value)));
 
                 // Get the current max and min values and put them on the screen
-                H = dataBlob.getMaxHumidity();
+                HH = dataBlob.getMaxHumidity();
                 TextView outputHH = (TextView) findViewById(R.id.maxHumidityInput);
-                outputHH.setText(""+H);
-                H = dataBlob.getMinHumidity();
+                outputHH.setText(String.valueOf(HH));
+                HL = dataBlob.getMinHumidity();
                 TextView outputHL = (TextView) findViewById(R.id.minHumidityInput);
-                outputHL.setText(""+H);
+                outputHL.setText(String.valueOf(HL));
 
                 // Set the colour of the display accordingly.
                 dataBlob.setHumidityColor(tvHumid);
-
+                //if (Integer.parseInt(value) > maxHumidity || minHumidity > Integer.parseInt(value))
             }
 
             @Override
@@ -113,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void setTempLevels() {
+    protected void setTempLevels() {
         tvTemp = (TextView)findViewById(R.id.tvTemp);
         firebaseReference = firebaseDBInstance.getReference("Temperature: ");
 
@@ -123,26 +135,33 @@ public class MainActivity extends AppCompatActivity {
 
                 String value = (String) dataSnapshot.getValue();
                 tvTemp.setText(value);                 // Put the temperature onto the display
-                value=value.replaceAll("[^0-9.]","");  // Strip out anything not numeric.
+                value = value.replaceAll("[^0-9.]", "");  // Strip out anything not numeric.
+
+                /*
+                * Instance variables for:
+                * User visualisation
+                * Range checking
+                * */
+                double TH; //temp_high reading
+                double TL; //temp_low reading
 
                 /*
                 * Turn the temperature value (a string)
                 * into a double for storage in the dataBlob.
                 * */
-                double T =Double.parseDouble(String.valueOf(value));
-                dataBlob.setTemperature(T);
+                dataBlob.setTemperature(Double.parseDouble(String.valueOf(value)));
 
                 // Get the current max and min values and put them on the screen
-                T = dataBlob.getMaxTemperature();
+                TH = dataBlob.getMaxTemperature();
                 TextView outputTH = (TextView) findViewById(R.id.maxTempInput);
-                outputTH.setText(""+T);
-                T = dataBlob.getMinTemperature();
+                outputTH.setText(String.valueOf(TH));
+                TL = dataBlob.getMinTemperature();
                 TextView outputTL = (TextView) findViewById(R.id.minTempInput);
-                outputTL.setText(""+T);
+                outputTL.setText(String.valueOf(TL));
 
                 // Set the colour of the display accordingly.
                 dataBlob.setTempColor(tvTemp);
-
+                //if (Integer.parseInt(value) > maxHumidity || minHumidity > Integer.parseInt(value))
             }
 
             @Override
@@ -152,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void setValues(View v){
+    protected void setValues(View v){
 
         //minTemp
         EditText minTempInput = (EditText) findViewById(R.id.minTempInput);
@@ -204,7 +223,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         //TOAST which shows data has been succesfully set
-        Toast.makeText(this, "Ranges Set Successfully", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Threshold(s) Set", Toast.LENGTH_SHORT).show();
     }
-
 }
